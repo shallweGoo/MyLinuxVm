@@ -56,18 +56,23 @@ public:
 class sort_timer_lst{
 public:
     sort_timer_lst();
+    
     ~sort_timer_lst();
 
     void add_timer(util_timer* timer);
+
     void adjust_timer(util_timer* timer);
+
     void del_timer(util_timer* timer);
+
     void tick();
 
 private:
     void add_timer(util_timer* timer,util_timer* lst_head);
-    util_timer* head;
-    util_timer* tail;
 
+    util_timer* head;
+
+    util_timer* tail;
 };
 
 //定时器对象的句柄
