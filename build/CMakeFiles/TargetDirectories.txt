@@ -1,0 +1,3 @@
+/home/shallwe/XW_projection/web_server/web/build/CMakeFiles/edit_cache.dir
+/home/shallwe/XW_projection/web_server/web/build/CMakeFiles/rebuild_cache.dir
+/home/shallwe/XW_projection/web_server/web/build/CMakeFiles/sw_server.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/sw_server.dir/main.cpp.o CMakeFiles/sw_server.dir/web_server_config.cpp.o CMakeFiles/sw_server.dir/web_server.cpp.o  -o sw_server -lpthread -lmysqlclient 
