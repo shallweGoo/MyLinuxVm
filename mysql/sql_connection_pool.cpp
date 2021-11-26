@@ -23,7 +23,7 @@ void connection_pool::init(string host, string user, string password, string dat
     m_port = port;
     m_log_status = log_status;
     
-    for(int i = 0; i < maxconn; ++i) {
+    for (int i = 0; i < maxconn; ++i) {
         MYSQL* conn = nullptr;
         conn = mysql_init(conn);
         if (nullptr == conn) { 
@@ -31,8 +31,9 @@ void connection_pool::init(string host, string user, string password, string dat
             exit(1);
         }
         conn = mysql_real_connect(conn, m_host.c_str(), m_user.c_str(), m_password.c_str(), m_databasename.c_str(), m_port, nullptr, 0);
-        if(nullptr == conn) {
+        if (nullptr == conn) {
             LOG_ERROR("MySQL REAL CONNECT ERROR!");
+            std::cout << "MySQL REAL CONNECT ERROR!" << std::endl;
             exit(1);
         }
         m_conn_list.push_back(conn);

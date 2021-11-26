@@ -34,10 +34,9 @@ bool WebServer::InitLog() {
             Log::getLogInstance().init(m_log_name.c_str(), m_log_status, LOG_BUF_SIZE, LOG_SPLITS_LINE, 0);
         }
     }
+    LOG_INFO("%s", "init log success!");
     return true;
 }
-
-
 
 bool WebServer::InitSql() {
     m_conn_pool = connection_pool::GetInstance();
@@ -47,6 +46,7 @@ bool WebServer::InitSql() {
         LOG_ERROR("%s\n","init sql connect pool failed");
         return false;
     }
+    LOG_INFO("%s", "init sql success!");
     return true;
 }
 
@@ -56,7 +56,7 @@ bool WebServer::InitThreadPool() {
         LOG_ERROR("%s", "init thread pool failure!");
         return false;
     }
-    LOG_INFO("%s", "init thread pool success!")
+    LOG_INFO("%s", "init thread pool success!");
     return true;
 }
 
@@ -115,7 +115,7 @@ bool WebServer::Init(WebServerConfig&& config) {
     m_thread_num = config.m_thread_num;
 
 
-    assert( InitLog() && InitSql() && InitThreadPool() && InitTrigMode() );
+    assert(InitLog() && InitSql() && InitThreadPool() && InitTrigMode() );
     event_listen();
     LOG_INFO("%s","Initial web server success!");
 
@@ -407,7 +407,7 @@ void WebServer::Run() {
         }
         if (timeout) {
             m_utils.timer_handler(); // restart timer
-            LOG_INFO("%s", "timer tick");
+            // LOG_INFO("%s", "timer tick");
             timeout = false;
         }
     }

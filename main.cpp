@@ -7,7 +7,8 @@ int main(int argc,char* argv[]) {
     //config
     WebServerConfig config;
     config.Parse(argc, argv);
-
+    // config.Show();
+    
     //server
     std::unique_ptr<websv::WebServer> server(new websv::WebServer());    
     server->Init(std::move(config));

@@ -14,7 +14,7 @@ public:
 
 public:
     void Parse(int argc, char* argv[]);
-
+    void Show() const;
 public:
     int m_port; //web server port
 

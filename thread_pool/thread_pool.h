@@ -36,7 +36,7 @@ public:
     void SetInitThreadFactor(float init_thread_factor) { m_init_thread_factor = init_thread_factor;} 
 
 private:
-    static void* Worker(void* arg); //工作线程，让线程池里面的线程都注册为这个
+    static void* Worker(void* arg);  // 工作线程，让线程池里面的线程都注册为这个
     void Run();
     static void* Manager(void* arg); // 管理者线程
     void Check();
@@ -219,6 +219,7 @@ void thread_pool<T>::Run() {
                 std::unique_lock<std::mutex> locker(m_mutex);
                 ++m_free_thread_num;
                 m_recycle_thread_ids.insert(std::this_thread::get_id());
+                cout << "sem wait time out" << endl;
                 break;
             } else if (errno == EAGAIN) {
                 continue;

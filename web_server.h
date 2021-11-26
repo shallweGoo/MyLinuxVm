@@ -107,11 +107,8 @@ private:
     std::shared_ptr<thread_pool<http::HttpConn>> m_threadpool;
     int m_thread_num;
 
-
-
     // 统计一下接收了多少次请求
     uint64_t m_request_num;
-
 };
 
 
